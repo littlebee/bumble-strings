@@ -9,6 +9,8 @@ module.exports = class StringHelpers
   @startsWith: (str, otherStr) ->
     return str.slice(0, otherStr.length) == otherStr
   
+  @has: (str, otherStr) ->
+    str.indexOf(otherStr) != -1
 
   @weakValue: (str, options={}) ->
     _.defaults options,
