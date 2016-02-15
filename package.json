@@ -1,13 +1,12 @@
 {
   "name": "bumble-strings",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Some simple string helpers for testing weakly equality and more",
   "main": "index.js",
   "dependencies": {
     "underscore": "^1.8.3"
   },
-  "devDependencies": {
-  },
+  "devDependencies": {},
   "scripts": {
     "test": "echo \"TBD: comming soon!\" && exit 1",
     "prepublish": "./build.sh"
