@@ -33,7 +33,9 @@ module.exports = class StringHelpers
   
   @endsWith: (str, otherStrings) ->
     @_withOneOrArray otherStrings, (otherStr) ->
-      return true if str.slice(-1 * otherStr.length) == str
+      #console.log "endsWith str='#{str}'  otherStr='#{otherStr}'  slice='#{ str.slice(-1 * otherStr.length)}'", str.slice(-1 * otherStr.length) == str
+      return true unless otherStr?.length > 0
+      return true if str.slice(-1 * otherStr.length) == otherStr
 
   
   @has: (str, otherStrings) ->
@@ -47,7 +49,7 @@ module.exports = class StringHelpers
       useLocale: false
       trim: true
     if options.trim
-      str = @trim(str) 
+      str = @trim(str, all: true) 
     if (options.ignoreCase) 
         if (options.useLocale) 
             str = str.toLocaleLowerCase()

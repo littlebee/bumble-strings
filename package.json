@@ -31,8 +31,8 @@
     "webpack-dev-server": "^1.14.1"
   },
   "scripts": {
-    "test": "echo \"TBD: comming soon!\" && exit 1",
-    "prepublish": "./build.sh"
+    "test": "grunt test",
+    "prepublish": "grunt build"
   },
   "repository": {
     "type": "git",

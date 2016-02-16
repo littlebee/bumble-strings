@@ -14,6 +14,7 @@ NON_MATCHING = ["MY cat", "my unicorn", "Somthing completely different"]
 describe "startsWith() & weaklyStartsWith", ->
   
   it "should startsWith itself", ->    # well, duh
+    assert BStr.startsWith(MY_DOG, MY_DOG)
     assert BStr.startsWith(MY_DOG, STRONG_START)
     assert BStr.startsWith(MY_DOG, "  "),  "two spaces"
     
@@ -32,7 +33,7 @@ describe "startsWith() & weaklyStartsWith", ->
     assert BStr.startsWith(MY_DOG, testArray)
         
   it "should weaklyStartsWith itself", ->    # well, duh
-    assert BStr.startsWith(MY_DOG, STRONG_START)
+    assert BStr.weaklyStartsWith(MY_DOG, STRONG_START)
     
   it "should weaklyStartsWith weaker versions of itself", ->
     assert BStr.weaklyStartsWith(MY_DOG, WEAK_START), "first 12 trimmed => #{WEAK_START}"
