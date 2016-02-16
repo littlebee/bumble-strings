@@ -22,22 +22,23 @@ module.exports = class StringHelpers
   
   
   ###
-    otherStr can also be an array of other strings
-  ###
-  @startsWith: (str, otherStr) ->
-    otherStrings = if _.isArray(otherStr) then otherStr else [otherStr]
-    for testString in otherStrings
-      return true if str.slice(0, testString.length) == testString
+    returns true if string starts with other string 
     
-    return false
+    otherStr can also be an array of other strings, returns true if any match.
+  ###
+  @startsWith: (str, otherStrings) ->
+    @_withOneOrArray otherStrings, (otherStr) ->
+      return true if str.slice(0, otherStr.length) == otherStr
+    
   
-  
-  @endsWith: (str, otherString) ->
-    return str.slice(-otherString.length) == str
+  @endsWith: (str, otherStrings) ->
+    @_withOneOrArray otherStrings, (otherStr) ->
+      return true if str.slice(-1 * otherStr.length) == str
 
   
-  @has: (str, otherStr) ->
-    str.indexOf(otherStr) != -1
+  @has: (str, otherStrings) ->
+    @_withOneOrArray otherStrings, (otherStr) ->
+      return true if str.indexOf(otherStr) != -1
 
 
   @weakValue: (str, options={}) ->
@@ -61,17 +62,28 @@ module.exports = class StringHelpers
     return @weakValue(str, options).localeCompare(@weakValue(otherStr, options))
     
     
-  @weaklyHas: (str, otherStr) ->
-    return @weakValue(str).indexOf(@weakValue(otherStr)) != -1
+  @weaklyHas: (str, otherStrings) ->
+    @_withOneOrArray otherStrings, (otherStr) =>
+      return true if @weakValue(str).indexOf(@weakValue(otherStr)) != -1
     
     
-  @weaklyStartsWith: (str, otherStr) ->
-    return @startsWith(@weakValue(str), @weakValue(otherStr))
+  @weaklyStartsWith: (str, otherStrings) ->
+    @_withOneOrArray otherStrings, (otherStr) =>
+      return true if @startsWith(@weakValue(str), @weakValue(otherStr))
     
     
-  @weaklyEndsWith: (str, otherStr) ->
-    return @endsWith(@weakValue(str), @weakValue(otherStr))
+  @weaklyEndsWith: (str, otherStrings) ->
+    @_withOneOrArray otherStrings, (otherStr) =>
+      return true if @endsWith(@weakValue(str), @weakValue(otherStr))
     
     
-    
+  @_withOneOrArray: (strOrArray, fn) ->
+    array = if _.isArray(strOrArray) then strOrArray else [strOrArray]
+    truth = false
+    for str in array
+      if fn(str) == true
+        truth = true
+        break
+              
+    return truth
   

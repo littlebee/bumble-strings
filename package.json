@@ -6,7 +6,30 @@
   "dependencies": {
     "underscore": "^1.8.3"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "babel-core": "^6.5.2",
+    "babel-loader": "^6.2.2",
+    "babel-preset-es2015": "^6.5.0",
+    "babel-preset-react": "^6.5.0",
+    "bumble-build": "^0.2.3",
+    "bumble-docs": "^0.4.3",
+    "bumble-test": "^0.1.5",
+    "grunt": "^0.4.5",
+    "grunt-available-tasks": "^0.6.1",
+    "grunt-coffee-react": "^2.4.1",
+    "grunt-contrib-clean": "^1.0.0",
+    "grunt-contrib-coffee": "^1.0.0",
+    "grunt-contrib-cssmin": "^0.14.0",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-newer": "^1.1.2",
+    "grunt-react": "^0.12.3",
+    "grunt-scp": "^0.1.8",
+    "grunt-shell": "^1.1.2",
+    "grunt-sync": "^0.5.2",
+    "grunt-webpack": "^1.0.11",
+    "webpack": "^1.12.13",
+    "webpack-dev-server": "^1.14.1"
+  },
   "scripts": {
     "test": "echo \"TBD: comming soon!\" && exit 1",
     "prepublish": "./build.sh"
