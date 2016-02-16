@@ -1,6 +1,6 @@
 {
   "name": "bumble-strings",
-  "version": "1.0.0",
+  "version": "0.2.2",
   "description": "Some simple string helpers for testing weakly equality and more",
   "main": "index.js",
   "dependencies": {
