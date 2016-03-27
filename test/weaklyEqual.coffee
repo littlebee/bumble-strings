@@ -28,3 +28,16 @@ describe "weaklyEqual()", ->
     
   it "should not weakly equal something completely different", ->
     assert !BStr.weaklyEqual(MY_DOG, "SOMEthing completely different!")
+    
+    
+  it "should not weakly equal any of array without matches", ->
+    assert !BStr.weaklyEqual(MY_DOG, ["gibberish", "garbage", "SOMEthing completely different!"])
+    
+    
+  it "should weakly equal if any of array with a single match", ->
+    assert BStr.weaklyEqual(MY_DOG, ["gibberish", "garbage", MY_DOG.toLowerCase(), 
+      "SOMEthing completely different!"])
+    
+    
+    
+    
