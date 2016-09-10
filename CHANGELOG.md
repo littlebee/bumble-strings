@@ -1,3 +1,9 @@
+## [0.5.0](https://github.com/littlebee/bumble-strings.git/compare/0.4.1...0.5.0) (2016-09-253)
+
+
+### New Features
+* [99ff524](https://github.com/littlebee/bumble-strings.git/commit/99ff524759292bc2dd45be2e2faf7c4e17289564)  bunch of new methods: isNumeric(), numerize(str), capitalize(), ...  from old string helpers with tests
+
 ## [0.4.1](https://github.com/littlebee/bumble-strings.git/compare/0.4.0...0.4.1) (2016-03-87)
 
 
