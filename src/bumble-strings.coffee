@@ -125,6 +125,94 @@ module.exports = class StringHelpers
       return true if @endsWith(@weakValue(str), @weakValue(otherStr))
     
     
+  ###
+    makes strings like "this_string", "ThisString", "this-string", "this.string" into
+    "this string"
+  ###
+  @humanize: (str) ->
+    out = str
+    .replace(/([A-Z])/g, " $1")
+    .replace(/[_\-\.](.)/g, " $1")
+    
+    return out.trim().toLowerCase()
+
+
+  ###  
+    converts a string like "dropCamelCase".decamelize() => "Drop Camel Case"
+  ###
+  @decamelize: (str) ->
+    result = str.replace( /_?([A-Z])/g, " $1" );
+    result = result.charAt(0).toUpperCase() + result.slice(1);
+    return result.toLowerCase()
+
+  ###
+    converts a string like "Drop Camel Case".dropcamelize() => "dropCamelCase"
+  ###
+  @dropcamelize: (str) ->
+    result = str.replace( /\s/g, "" );
+    return result.charAt(0).toLowerCase() + result.slice(1);
+
+
+  ###
+    capitalize the first letter of a string
+  ###
+  @capitalize: (str) ->
+    str.charAt(0).toUpperCase() + str.substring(1);
+
+
+  ###
+    decapitalize the first letter of a string
+  ###
+  @decapitalize: (str) ->
+    str.charAt(0).toLowerCase() + str.substring(1);
+
+
+  ###
+    returns true if the first letter of a string is capitalized
+  ###
+  @isCapitalized: (str) ->
+    str.match(/^[A-Z].*/) != null
+
+  ###
+    returns true if all alphabetic characters of string are upper case letters.
+    ignores numbers and punctuation
+  ###
+  @isAllCaps: (str) ->
+    str.match(/^[A-Z\s0-9]*$/) != null
+
+
+  ###
+    returns true if string is numeric
+  ###
+  @isNumeric: (str) ->
+    return str.toString().match(/^[\-,\+]?[\s\d\.]*$/) != null
+
+
+  ###
+    adds thousands separaters optionally truncates decimal portion to decimalPlaces characters
+    slightly enhanced from
+    http://stackoverflow.com/questions/2901102/how-to-print-a-number-with-commas-as-thousands-separators-in-javascript
+  ###
+  @numerize: (str, decimalPlaces=null, zeroFill=false) ->
+    if decimalPlaces
+      pow = Math.pow(10, decimalPlaces)
+      parts = (Math.round(parseFloat(str) * pow) / pow).toString().split(".")
+    else
+      parts = str.toString().split('.')
+
+    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+    if decimalPlaces
+      if parts.length > 1
+        parts[1] = parts[1].slice(0, decimalPlaces)
+        if zeroFill
+          parts[1] += '0' while parts[1].length < decimalPlaces
+      else if zeroFill
+        parts.push(Array(decimalPlaces+1).join('0'))
+    
+    return parts.join(".")
+      
+    
   @_withOneOrArray: (strOrArray, fn) ->
     array = if _.isArray(strOrArray) then strOrArray else [strOrArray]
     truth = false
