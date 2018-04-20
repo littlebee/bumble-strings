@@ -1,3 +1,9 @@
+## [0.6.1](https://github.com/littlebee/bumble-strings.git/compare/0.5.0...0.6.1) (2018-04-20)
+
+
+### Other Commits
+* [70ae1a7](https://github.com/littlebee/bumble-strings.git/commit/70ae1a770a0044c5769ec372a0c7f8224967c373) fix issue with weaklyCompare - it should not return boolean but instead return -1, 0 or 1 like localeCompare like the docs say
+
 ## [0.5.0](https://github.com/littlebee/bumble-strings.git/compare/0.4.1...0.5.0) (2016-09-253)
 
 
