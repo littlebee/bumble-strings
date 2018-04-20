@@ -95,7 +95,7 @@ module.exports = class StringHelpers
   ###  
   @weaklyCompare: (str, otherStrings, options={}) ->
     @_withOneOrArray otherStrings, (otherStr) =>
-      return true if @weakValue(str, options).localeCompare(@weakValue(otherStr, options))
+      return @weakValue(str, options).localeCompare(@weakValue(otherStr, options))
     
     
   ###
