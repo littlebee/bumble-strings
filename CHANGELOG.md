@@ -1,3 +1,9 @@
+## [0.6.2](https://github.com/littlebee/bumble-strings.git/compare/0.6.1...0.6.2) (2018-04-20)
+I th
+
+### Other Commits
+* [c388066](https://github.com/littlebee/bumble-strings.git/commit/c388066bfd07d0d0c397f5bc73ae0ae9e4c79d24) add package lock file
+
 ## [0.6.1](https://github.com/littlebee/bumble-strings.git/compare/0.5.0...0.6.1) (2018-04-20)
 
 
