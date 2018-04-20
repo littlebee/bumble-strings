@@ -1,3 +1,9 @@
+## [0.6.3](https://github.com/littlebee/bumble-strings.git/compare/0.6.2...0.6.3) (2018-04-20)
+Weakly compare now functions as the documentation says.
+
+### Other Commits
+* [17dd04f](https://github.com/littlebee/bumble-strings.git/commit/17dd04f3c50ac8e5095566e82cbffb8d41f4490f) add test and fix remaining bug in weaklyCompare
+
 ## [0.6.2](https://github.com/littlebee/bumble-strings.git/compare/0.6.1...0.6.2) (2018-04-20)
 I th
 
