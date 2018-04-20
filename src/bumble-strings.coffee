@@ -93,9 +93,8 @@ module.exports = class StringHelpers
     Returns -1, 0 or 1 like javascript localeCompare.  Comppares the weak values.  
     see weakValue() comments
   ###  
-  @weaklyCompare: (str, otherStrings, options={}) ->
-    @_withOneOrArray otherStrings, (otherStr) =>
-      return @weakValue(str, options).localeCompare(@weakValue(otherStr, options))
+  @weaklyCompare: (str, otherStr, options={}) ->
+    return @weakValue(str, options).localeCompare(@weakValue(otherStr, options))
     
     
   ###
