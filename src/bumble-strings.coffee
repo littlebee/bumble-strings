@@ -96,6 +96,11 @@ module.exports = class StringHelpers
   @weaklyCompare: (str, otherStr, options={}) ->
     return @weakValue(str, options).localeCompare(@weakValue(otherStr, options))
     
+  
+  @weaklyIn: (str, otherStrings, options={}) ->
+    __withOneOrArray otherStrings, (otherStr) =>
+      @weaklyEqual(str, otherStr, options)
+
     
   ###
     Returns true if the first string weakly contains any of the otherStrings. 
@@ -133,8 +138,16 @@ module.exports = class StringHelpers
     .replace(/([A-Z])/g, " $1")
     .replace(/[_\-\.](.)/g, " $1")
     
-    return out.trim().toLowerCase()
+    return @trim(out).toLowerCase()
 
+  ###
+    makes "this is a string" into "this-is-a-string"
+    (stolen from underscore.string)
+  ###
+  @dasherize: (str) ->
+    # fixed from underscore.string: only add dash before upper case letter if not the first letter 
+    @trim(str).replace(/(.)([A-Z])/g, '$1-$2').replace(/[-_\s]+/g, '-').toLowerCase()
+  
 
   ###  
     converts a string like "dropCamelCase".decamelize() => "Drop Camel Case"
@@ -166,11 +179,17 @@ module.exports = class StringHelpers
     str.charAt(0).toLowerCase() + str.substring(1);
 
 
+  @titleize: (str) ->
+    str.toString().toLowerCase().replace /(?:^|\s|-)\S/g, (c) ->
+      c.toUpperCase();
+
+
   ###
     returns true if the first letter of a string is capitalized
   ###
   @isCapitalized: (str) ->
     str.match(/^[A-Z].*/) != null
+
 
   ###
     returns true if all alphabetic characters of string are upper case letters.
