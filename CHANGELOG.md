@@ -1,3 +1,9 @@
+## [0.7.0](https://github.com/littlebee/bumble-strings.git/compare/0.6.3...0.7.0) (2018-04-22)
+these are the remaining methods we previously used from either underscore.string or inflection.js
+
+### Other Commits
+* [a6a911b](https://github.com/littlebee/bumble-strings.git/commit/a6a911bcf61796eee079544b0ee7ba22bf4e59f9) add dasherize, titleize and humanize with tests
+
 ## [0.6.3](https://github.com/littlebee/bumble-strings.git/compare/0.6.2...0.6.3) (2018-04-20)
 Weakly compare now functions as the documentation says.
 
