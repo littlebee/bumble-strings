@@ -98,7 +98,7 @@ module.exports = class StringHelpers
     
   
   @weaklyIn: (str, otherStrings, options={}) ->
-    __withOneOrArray otherStrings, (otherStr) =>
+    @_withOneOrArray otherStrings, (otherStr) =>
       @weaklyEqual(str, otherStr, options)
 
     
