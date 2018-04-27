@@ -1,3 +1,9 @@
+## [0.7.1](https://github.com/littlebee/bumble-strings.git/compare/0.7.0...0.7.1) (2018-04-26)
+
+
+### Other Commits
+* [37ab6e9](https://github.com/littlebee/bumble-strings.git/commit/37ab6e9bcb09d7f757742e9a08954579c43d05dd) fix bug in weaklyIn() and add tests
+
 ## [0.7.0](https://github.com/littlebee/bumble-strings.git/compare/0.6.3...0.7.0) (2018-04-22)
 these are the remaining methods we previously used from either underscore.string or inflection.js
 
